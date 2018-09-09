@@ -3,3 +3,10 @@ node_js: node_js
 cache:
   directories:
   - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZI7J2A9dRC15biazPnoEMwwr6nSQIeyUdsY6eRWpLlg9qGaX4481g9KKlHFnAaExncJuVBjxvnorjnatPpaF35NhvgcCdjZHhs4cPSIUee18MK3gpy9vuS7MQTzxIFpMCVvLezf2Q/DwieOH5y7+cekkgJCPz1HJYKj2T9ZWMy+qHhkKWMiLZd911Vz+wA9MstMZdA7VCmei6u7XY5gSmdrys/jqzXAvN6XqrDYnBb34KxmAj8hMZelLrYYwpwjq17Baqp6k/C7YMbwPmT5Z03lkB9993Qh6VubSJnFpDDBpZ2apqXXG4a5XAb8269cTZOiIKpjxKhzNYOEA4fFRA/eoasEaY2l5DsFzY5WeHubCQO5CKARXG73IaWVl4WWhWg1zoDdPc/uskT2U1zcNmAdtHUMjV+2Byh2HAmKDANPEJQMo1x1Qz8a6xar5BdwACKhQ4heH/4w0jfPstQBYy5xV8gsOecHQGB0/aKOE6gUu5BQ7l/mVnLMOrNvQD7jZCNMnI+daty0JHBDOq8zjNByx/v8oBNMBOZUbbe74lGxWxSTRe2mpZ0bmPb7vBIn4nVUfe5atZSVqe1rn98xB8J5boiIbYxAE6Uy2545e4rRgt5jrJYJYaITRHa4nlZceTjBfPD1l/iQO735lBB920zahzKF42e8X8sioznQhcEU=
+  app: colorpicker-client
+  on:
+    repo: jsphkm/colorpicker-client
