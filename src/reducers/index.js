@@ -1,6 +1,9 @@
 import * as actions from '../actions';
 
 const initialState = {
+  dashboard: {
+    palettes: []
+  },
   editor: {
     colorOptions: [
       {
@@ -15,7 +18,7 @@ const initialState = {
   }
 };
 
-export const colorpickerReducer = (state=initialState, action) => {
+export const mainReducer = (state=initialState, action) => {
   if (action.type === actions.ADD_BOX) {
     return Object.assign({}, state, {
       editor: {
@@ -36,7 +39,7 @@ export const colorpickerReducer = (state=initialState, action) => {
       editor: {
         colorOptions: action.colorOptions
       }
-    }, this.aftersetState);
+    });
   }
 
   if (action.type === actions.CHECKED_BOX) {
@@ -44,11 +47,10 @@ export const colorpickerReducer = (state=initialState, action) => {
       editor: {
         colorOptions: action.colorOptions
       }
-    }, this.aftersetState);
+    });
   }
 
   if (action.type === actions.HUE_CHANGE) {
-    // console.log(action.colorIndex);
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: action.hueValue,
@@ -67,7 +69,6 @@ export const colorpickerReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.HUE_CHANGE) {
-    // console.log(action.colorIndex);
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: action.hueValue,
@@ -86,7 +87,6 @@ export const colorpickerReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.SATURATION_CHANGE) {
-    // console.log(action.colorIndex);
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: state.editor.colorOptions[action.colorIndex].color.hue,
@@ -105,7 +105,6 @@ export const colorpickerReducer = (state=initialState, action) => {
   }
 
   if (action.type === actions.LIGHTNESS_CHANGE) {
-    // console.log(action.colorIndex);
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: state.editor.colorOptions[action.colorIndex].color.hue,
@@ -123,6 +122,7 @@ export const colorpickerReducer = (state=initialState, action) => {
     })
   }
 
-  //TODO: if (action.type === actions.UPDATE_HUE)
   return state;
 };
+
+export default mainReducer;

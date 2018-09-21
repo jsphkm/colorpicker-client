@@ -1,6 +1,14 @@
+/* html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004)
+} */
+
+body {
+  color: white;
+}
+
 .colorbox {
-  /* border-radius: 100%;
-  margin: 0 7px; */
   width: 100%;
   height: 6em;
 }
@@ -16,7 +24,7 @@
   position: relative;
 }
 
-.colorbox-radio, label {
+.colorboxcontainer .colorbox-radio, .colorboxcontainer label {
   display: block;
   position: absolute;
   top: 0;
@@ -36,18 +44,25 @@
 }
 
 .colorbox input[type="radio"]:checked + label{
-  border: 4px solid white;
+  padding-bottom: 10px;
+  margin-bottom: -17px;
+  width: 0;
+  left: calc(50% - 4.5px);
+  border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+  border-bottom: 9px solid white;
   opacity: 1;
 }
 
 .divider {
   background-color: #353535;
-  height: 2px;
+  height: 1px;
   width: 100%;
 }
 
 .slider {
   max-width: 300px;
+  cursor: pointer;
 }
 
 .slidecontainer {
@@ -64,68 +79,81 @@
 .slider-hsl-h {
   -webkit-appearance: none;
   width: 100%;
-  height: 18px;
-  border-radius: 18px;
-  background: linear-gradient(to right,
-  hsl(0,100%,50%),
-  hsl(60,100%,50%),
-  hsl(120,100%,50%),
-  hsl(180,100%,50%),
-  hsl(240,100%,50%),
-  hsl(300,100%,50%),
-  hsl(360,100%,50%));
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  height: 10px;
+  border-radius: 7px;
+  box-shadow: 0 0 3px 0 lightgray;
+}
+
+.slider-hsl-h::-moz-range-track {
+  background-color: transparent;
 }
 
 .slider-hsl-s {
   -webkit-appearance: none;
   width: 100%;
-  height: 18px;
-  border-radius: 18px;
-  background: linear-gradient(to right,
-  hsl(240,0%,50%),
-  hsl(240,100%,50%));
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  height: 10px;
+  border-radius: 7px;
+  box-shadow: 0 0 3px 0 gray;
+}
+
+.slider-hsl-s::-moz-range-track {
+  background-color: transparent;
 }
 
 .slider-hsl-l {
   -webkit-appearance: none;
   width: 100%;
-  height: 18px;
-  border-radius: 18px;
-  background: linear-gradient(to right,
-  hsl(240,100%,0%),
-  hsl(240,100%,50%),
-  hsl(240,100%,100%));
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  height: 10px;
+  border-radius: 7px;
+  box-shadow: 0 0 3px 0 gray;
+}
+
+.slider-hsl-l::-moz-range-track {
+  background-color: transparent;
 }
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 35px;
-  height: 35px;
+  background-color: hsl(220,70%,50%);
+  box-shadow: 0 0 15px 0px black;
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
   border: 2px solid white;
-  background: dodgerblue;
-  cursor: pointer;
+  transition: transform 0.1s;
 }
 
 .slider::-moz-range-thumb {
-  width: 35px;
-  height: 35px;
+  appearance: none;
+  background-color: rgba(10,10,10,1);
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
-  border: 3px solid white;
-  background: dodgerblue;
-  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.slider::-webkit-slider-thumb:active {
+  box-shadow: 0 0 10px 0px black;
+  transition: box-shadow 0.2s;
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 
 h1 {
   font-weight: 500;
-  font-size: 27px;
+  font-size: 22px;
+  margin: 0px;
 }
 
 .subMenuContainer {
@@ -149,4 +177,58 @@ button {
 
 a {
   color: dodgerblue;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+a:hover, a:focus {
+  color: skyblue;
+  transition: color 0.3s;
+}
+
+header {
+  padding: 2px 32px;
+  box-shadow: 0 0 20px 0 black;
+  width: 100%;
+  background-color: black;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+}
+
+.spacer {
+  width: 100%;
+  height: 75px;
+}
+
+.app-title {
+  display: inline-block;
+  margin: 7px 0px;
+  font-weight: 500;
+  font-size: 19px;
+  margin: 0px;
+}
+
+.triangle {
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  height: 6px;
+  width: 6px;
+  transform: rotate(45deg);
+}
+
+.triangle-container {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  top: -4px;
+}
+
+.headerlink {
+  font-size: 17px;
+}
+
+.app-title-button {
+  margin: 15px 0px;
 }

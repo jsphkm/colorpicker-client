@@ -61,14 +61,6 @@ export class Colorboxes extends React.Component {
     this.props.dispatch(checkedBox(colorOptions));
   }
 
-  // aftersetState(){
-  //   this.props.onSelectionChange(this.state.boxes);
-  // }
-
-  // componentDidMount(){
-  //   this.props.onSelectionChange(this.state.boxes);
-  // }
-
   render(){
     const colorOptionsList = this.props.colorOptions.map((coloroption, idx) => (
       <Colorbox 
@@ -95,7 +87,7 @@ export class Colorboxes extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  colorOptions: state.editor.colorOptions
+  colorOptions: state.main.editor.colorOptions
 })
 
 export default connect(mapStateToProps)(Colorboxes);
