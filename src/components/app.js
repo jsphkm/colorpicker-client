@@ -21,7 +21,7 @@ export class App extends React.Component {
           <main>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/signin" component={Loginform} />
+            <Route exact path="/login" component={Loginform} />
             <Route exact path="/editor" component={Coloreditor} />
             <Route exact path="/createaccount" component={RegistrationPage} />
           </main>
