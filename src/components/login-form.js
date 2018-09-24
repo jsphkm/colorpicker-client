@@ -21,7 +21,7 @@ export class LoginForm extends React.Component {
     }
     return (
       <section>
-        <div className="signin-title">Sign in to Colorpicker</div>
+        <div className="login-title">Log in to Colorpicker</div>
         <form
           className="login-form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}

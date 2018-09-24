@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Colorboxes from './colorboxes';
 import {hueChanged, saturationChanged, lightnessChanged} from '../actions';
+import './coloreditor.css';
 
 export class Coloreditor extends React.Component{
 

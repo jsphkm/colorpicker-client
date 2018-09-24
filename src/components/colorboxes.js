@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addBox, removeBox, checkedBox} from '../actions';
+import './colorboxes.css';
 
 const Colorbox = function(props) {
   const {checked, onChange, _id, color} = props;
