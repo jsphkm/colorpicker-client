@@ -1,30 +1,42 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Link, withRouter} from 'react-router-dom';
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Link, 
+  withRouter, 
+  Redirect, 
+  Switch
+} from 'react-router-dom';
 import './app.css';
 
-import Coloreditor from './coloreditor';
-import Dashboard from './dashboard';
-import Loginform from './login-form';
+import LoginPage from './login-page';
 import RegistrationPage from './registration-page';
 import LandingPage from './landing-page';
-import Headerbar from './header-bar';
+import User from './user';
+import NotFound from './notfound';
+
+// const PrivateRoute = ({component: Component, ...rest}) => (
+//   <Route {...rest} render={(props) => (
+//     props.hasAuthToken !== null
+//       ? <Component {...props} />
+//       : <Redirect to='/login' />
+//   )} />
+// )
 
 export class App extends React.Component {
   render(){
     return (
       <Router>
         <div className="app">
-          <Headerbar title="Colorpicker"/>
-          {/* <div className="divider"></div> */}
-          <div className="spacer"></div>
-          <main>
+          <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/login" component={Loginform} />
-            <Route exact path="/editor" component={Coloreditor} />
-            <Route exact path="/createaccount" component={RegistrationPage} />
-          </main>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={RegistrationPage} />
+            {/* <PrivateRoute path="/@user" component={User} /> */}
+            <Route path="/user" component={User} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     );

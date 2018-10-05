@@ -1,4 +1,5 @@
 import React from 'react';
+import './input.css';
 
 export default class Input extends React.Component {
   componentDidUpdate(prevProps) {
@@ -6,6 +7,7 @@ export default class Input extends React.Component {
       this.input.focus();
     }
   }
+  
   render() {
     let error;
     if (this.props.meta.touched && this.props.meta.error) {
@@ -20,19 +22,24 @@ export default class Input extends React.Component {
     }
 
     return (
-      <div className="form-input">
-        <label htmlFor={this.props.input.name}>
-          {this.props.label}
-          {error}
-          {warning}
-        </label>
+      <div className="form-input-container">  
         <input
+          // ref={nameInput => (this.props.af ? this.input = nameInput : '')}
+          className="form-input"
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
           ref={input => (this.input = input)}
           autoComplete={this.props.autocomplete}
+          placeholder={this.props.label}
         />
+        <label htmlFor={this.props.input.name} className="form-input-label">
+          {this.props.label}
+        </label>
+        <div className="form-input-errors">
+          {error}
+          {warning}
+        </div>
       </div>
     )
   }

@@ -12,8 +12,11 @@ export const registerUser = user => dispatch => {
     body: JSON.stringify(user)
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => res.json())
+  .then(res => {
+    res.json();
+  })
   .catch(err => {
+    debugger;
     const {reason, message, location} = err;
     if (reason === 'ValidationError') {
       return Promise.reject(

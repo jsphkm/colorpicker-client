@@ -1,0 +1,96 @@
+.app-title {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0px;
+}
+
+.app-title-button {
+  margin: 15px 0px;
+}
+
+.app-header {
+  padding: 0 15px;
+  box-shadow: 0 0 20px 0 black;
+  background-color: black;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.login-button {
+  font-size: 15px;
+  text-decoration: none;
+  /* color: hsl(0,0%,70%); */
+  /* border: 2px solid hsl(0,0%,30%); */
+  border: 2px solid transparent;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* .login-button:hover, .login-button:focus {
+  color: hsl(0,0%,100%);
+  border: 2px solid dodgerblue;
+  transition: border 0.8s, color 0.5s;
+} */
+
+.header-left {
+  display: inline-flex;
+  flex: 1;
+}
+
+.header-middle {
+  flex: 1;
+}
+
+.header-right {
+  display: inline-flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.arrow-down-container {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-down {
+  height:0px;
+  width:0px;
+  border:none;
+  border-top:4.8px solid white;
+  border-left:4.8px solid transparent;
+  border-right:4.8px solid transparent;
+  margin-left: 2px;
+}
+
+.profile-button {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  width: 65px;
+  height: 32px;
+  margin-left: 8px;
+  border: 1px solid transparent;
+  padding: 0 0 0 3px;
+  opacity: 0.8;
+}
+
+.profile-button:hover, .profile-button:focus {
+  opacity: 1;
+  border: 1px solid rgb(57, 57, 57);
+  border-radius: 4px;
+}
+
+.profile_icon {
+  padding: 8px;
+}

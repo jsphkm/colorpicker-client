@@ -1,15 +1,16 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 import Input from './input';
 import {login} from '../actions/auth';
-import {required, nonEmpty} from '../validators';
+import {required, nonEmpty, email} from '../validators';
 import './login-form.css'
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
     return this.props.dispatch(login(values.email, values.password));
   }
+
   render() {
     let error;
     if (this.props.error) {
@@ -19,25 +20,23 @@ export class LoginForm extends React.Component {
         </div>
       );
     }
+
     return (
-      <section>
-        <div className="login-title">Log in to Colorpicker</div>
         <form
           className="login-form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
         >
           {error}
-          {/* <label htmlFor="email">Email</label> */}
           <Field
+            af={true}
             component={Input}
             type="email"
             name="email"
             id="email"
             label="Email"
             autocomplete="username"
-            validate={[required, nonEmpty]}
+            validate={[required, nonEmpty, email]}
           />
-          {/* <label htmlFor="password">Password</label> */}
           <Field
             component={Input}
             type="password"
@@ -47,10 +46,14 @@ export class LoginForm extends React.Component {
             autocomplete="current-password"
             validate={[required, nonEmpty]}
           />
-          <button disabled={this.props.pristine || this.props.submitting}>Sign in</button>
+          <div className="form-buttons-container">
+            <button className="form-submit-button"
+              disabled={this.props.pristine || this.props.submitting || this.props.invalid}>
+              Sign in
+            </button>
+            <Link className="signup-redirect" to="/signup">Create account</Link>
+          </div>
         </form>
-        <div>New to Colorpicker? <Link to="/createaccount">Create account</Link></div>
-      </section>
     )
   }
 }
@@ -59,3 +62,4 @@ export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'email'))
 })(LoginForm);
+

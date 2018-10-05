@@ -1,19 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+import './registration-page.css';
 
 import RegistrationForm from './registration-form';
 
 export function RegistrationPage(props) {
   if (props.loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/user/dashboard" />;
   }
 
   return (
-    <div className="home">
+    <div className="registrationform-container">
       <h2>Create an Account</h2>
+      <p className="register-subheader">You can create and collect all your palettes with an account</p>
       <RegistrationForm />
-      <Link to="/signin">Sign in instead</Link>
     </div>
   );
 }

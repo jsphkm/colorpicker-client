@@ -7,7 +7,7 @@ import store from './store';
 import './index.css';
 
 
-ReactDOM.render(
+ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <App />

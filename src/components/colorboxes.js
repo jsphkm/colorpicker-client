@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addBox, removeBox, checkedBox} from '../actions';
+import {addBox, removeBox, checkedBox} from '../actions/editor';
 import './colorboxes.css';
 
 const Colorbox = function(props) {

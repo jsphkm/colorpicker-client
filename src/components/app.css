@@ -19,6 +19,7 @@ button {
   background-color: Transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 a {
@@ -27,38 +28,15 @@ a {
   transition: color 0.5s;
 }
 
-a:hover, a:focus {
-  color: skyblue;
-  transition: color 0.3s;
-}
-
-header {
-  padding: 2px 32px;
-  box-shadow: 0 0 20px 0 black;
-  width: 100%;
-  background-color: black;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-}
-
 .spacer {
   width: 100%;
-  height: 75px;
-}
-
-.app-title {
-  display: inline-block;
-  margin: 7px 0px;
-  font-weight: 500;
-  font-size: 19px;
-  margin: 0px;
+  height: 60px;
 }
 
 .headerlink {
   font-size: 17px;
 }
 
-.app-title-button {
-  margin: 15px 0px;
+.app {
+  padding: 10px;
 }

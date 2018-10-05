@@ -3,17 +3,14 @@
   text-decoration: none;
 }
 
-section {
-  margin: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.needtologin {
+/* .needtologin {
   font-weight: 300;
   font-size: 15px;
   color: lightgray;
   margin: 50px;
+} */
+
+.dashboard-section {
+  /* display: flex;
+  align-content: center; */
 }

@@ -1,4 +1,5 @@
-import * as actions from '../actions';
+import * as editor from '../actions/editor';
+import * as palettes from '../actions/palettes';
 
 const initialState = {
   dashboard: {
@@ -19,7 +20,8 @@ const initialState = {
 };
 
 export const mainReducer = (state=initialState, action) => {
-  if (action.type === actions.ADD_BOX) {
+
+  if (action.type === editor.ADD_BOX) {
     return Object.assign({}, state, {
       editor: {
         colorOptions: [...state.editor.colorOptions, {
@@ -34,7 +36,7 @@ export const mainReducer = (state=initialState, action) => {
     });
   }
 
-  if (action.type === actions.REMOVE_BOX) {
+  if (action.type === editor.REMOVE_BOX) {
     return Object.assign({}, state, {
       editor: {
         colorOptions: action.colorOptions
@@ -42,7 +44,7 @@ export const mainReducer = (state=initialState, action) => {
     });
   }
 
-  if (action.type === actions.CHECKED_BOX) {
+  if (action.type === editor.CHECKED_BOX) {
     return Object.assign({}, state, {
       editor: {
         colorOptions: action.colorOptions
@@ -50,7 +52,7 @@ export const mainReducer = (state=initialState, action) => {
     });
   }
 
-  if (action.type === actions.HUE_CHANGE) {
+  if (action.type === editor.HUE_CHANGE) {
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: action.hueValue,
@@ -68,25 +70,17 @@ export const mainReducer = (state=initialState, action) => {
     })
   }
 
-  if (action.type === actions.HUE_CHANGE) {
-    const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
-      color: {
-        hue: action.hueValue,
-        saturation: state.editor.colorOptions[action.colorIndex].color.saturation,
-        lightness: state.editor.colorOptions[action.colorIndex].color.lightness
-      }
-    });
-
-    const newEditorStates = [...state.editor.colorOptions];
-    newEditorStates[action.colorIndex] = newColorValues;
+  if (action.type === palettes.RENDER_PALETTES) {
+    console.log(action);
+    const newPalettesList = action.palettes;
     return Object.assign({}, state, {
-      editor: {
-        colorOptions: newEditorStates
+      dashboard: {
+        palettes: newPalettesList
       }
     })
   }
 
-  if (action.type === actions.SATURATION_CHANGE) {
+  if (action.type === editor.SATURATION_CHANGE) {
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: state.editor.colorOptions[action.colorIndex].color.hue,
@@ -104,7 +98,7 @@ export const mainReducer = (state=initialState, action) => {
     })
   }
 
-  if (action.type === actions.LIGHTNESS_CHANGE) {
+  if (action.type === editor.LIGHTNESS_CHANGE) {
     const newColorValues = Object.assign({}, state.editor.colorOptions[action.colorIndex], {
       color: {
         hue: state.editor.colorOptions[action.colorIndex].color.hue,

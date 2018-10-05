@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Colorboxes from './colorboxes';
-import {hueChanged, saturationChanged, lightnessChanged} from '../actions';
+import {hueChanged, saturationChanged, lightnessChanged} from '../actions/editor';
 import './coloreditor.css';
+import requiresLogin from './requires-login';
+import {getPalettes, postPalette} from '../actions/palettes';
 
 export class Coloreditor extends React.Component{
 
@@ -29,6 +31,10 @@ export class Coloreditor extends React.Component{
 
   printstate(){
     console.log(this.state);
+  }
+
+  postPalette(){
+    return this.props.dispatch(getPalettes());
   }
 
   render(){
@@ -79,6 +85,8 @@ export class Coloreditor extends React.Component{
             `}}
           ></input>
         </div>
+        <button>Discard</button>
+        <button onClick={postPalette}>Finish</button>
       </div>
     )
   }
@@ -95,4 +103,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Coloreditor);
+export default requiresLogin()(connect(mapStateToProps)(Coloreditor));

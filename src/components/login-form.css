@@ -3,6 +3,28 @@
   font-weight: 500;
 }
 
-.login-form {
-  margin-top: 50px;
+.signup-redirect {
+  text-decoration: none;
+}
+
+.loginform-container {
+  max-width: 540px;
+  margin: 0 auto;
+  background-color: rgb(22,23,24);
+  padding: 15px 15px 30px 15px;
+  border-radius: 3px;
+}
+
+.loginform-container h2 {
+  margin-top: 10px;
+}
+
+.signup-redirect {
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.signup-redirect:hover, .signup-redirect:focus {
+  color: rgb(50,100,255);
+  transition: color 0.3s;
 }

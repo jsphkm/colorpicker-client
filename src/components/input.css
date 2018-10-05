@@ -1,0 +1,51 @@
+.form-input-container {
+  position: relative;
+  padding-top: 1rem;
+  margin-top: 30px;
+}
+
+.form-input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid hsl(0,0%,40%);
+  color: white;
+}
+
+.form-input:focus {
+  border-bottom: 1px solid dodgerblue;
+  transition: border-bottom 0.5s;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: hsl(0,0%,35%);
+}
+
+.form-input-errors {
+  color: red;
+  font-size: 13px;
+  position: absolute;
+  bottom: -20px;
+}
+
+.form-input-label {
+  font-weight: 400;
+  color: hsl(0,0%,35%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0s ease-out, transform 0.2s ease-out, font-size 0.2s;
+}
+
+.form-input:placeholder-shown + .form-input-label {
+  opacity: 0;
+  transform: translateY(1rem);
+  font-size: 100%;
+}
+
+.form-input {
+  width: 100%;
+}

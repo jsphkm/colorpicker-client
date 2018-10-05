@@ -1,0 +1,36 @@
+.form-submit-button {
+  padding: 10px;
+  background-color: dodgerblue;
+  width: 100px;
+  border-radius: 3px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.form-submit-button:focus, .form-submit-button:hover {
+  background-color: rgb(50,100,255);
+}
+
+.form-submit-button:disabled {
+  background-color: rgb(50,50,50);
+  color: rgb(120,120,120);
+}
+
+.form-submit-button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.login-redirect {
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.login-redirect:hover, .login-redirect:focus {
+  color: rgb(50,100,255);
+  transition: color 0.3s;
+}
+
+.form-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0 20px 0;
+}
