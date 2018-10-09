@@ -1,12 +1,14 @@
 .colorbox {
   width: 100%;
-  height: 15em;
+  height: 7em;
+  float: left;
+  position: relative;
 }
 
 .colorboxcontainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin: 0 15px 30px 15px;
 }
 
 .colorboxcontainer .colorbox:first-child {
@@ -17,11 +19,6 @@
 .colorboxcontainer .colorbox:last-child {
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
-}
-
-.colorbox {
-  float: left;
-  position: relative;
 }
 
 .colorboxcontainer .colorbox-radio, .colorboxcontainer label {
@@ -52,4 +49,15 @@
 	border-right: 5px solid transparent;
   border-bottom: 9px solid white;
   opacity: 1;
+}
+
+.addremove-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.addremove-container button {
+  height: 50px;
+  padding: 10px;
 }

@@ -7,7 +7,7 @@ export default class Input extends React.Component {
       this.input.focus();
     }
   }
-  
+
   render() {
     let error;
     if (this.props.meta.touched && this.props.meta.error) {
@@ -24,7 +24,6 @@ export default class Input extends React.Component {
     return (
       <div className="form-input-container">  
         <input
-          // ref={nameInput => (this.props.af ? this.input = nameInput : '')}
           className="form-input"
           {...this.props.input}
           id={this.props.input.name}

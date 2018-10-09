@@ -5,6 +5,8 @@ import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
+import {getPalettes} from './palettes';
+
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -53,9 +55,15 @@ export const login = (email, password) => dispatch => {
         password
       })
     })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+    .then(res => {
+      return normalizeResponseErrors(res)
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(({authToken}) => {
+      return storeAuthInfo(authToken, dispatch)
+    })
     .catch(err => {
       const {code} = err;
       const message = code === 401 ? 'Incorrect email or password' : 'Unable to login, please try again';

@@ -24,6 +24,7 @@ const Colorbox = function(props) {
 }
 
 export class Colorboxes extends React.Component {
+
   addBox() {
     this.props.dispatch(addBox());
   }
@@ -63,14 +64,13 @@ export class Colorboxes extends React.Component {
   }
 
   render(){
+    console.log(this.props);
     const colorOptionsList = this.props.colorOptions.map((coloroption, idx) => (
       <Colorbox 
         key={idx}
         checked={coloroption.checked}
         _id={idx}
-        onChange={
-          () => this.checkedBox(idx)
-        }
+        onChange={() => this.checkedBox(idx)}
         color={coloroption.color}
       />
     ));
@@ -80,8 +80,10 @@ export class Colorboxes extends React.Component {
         <div className="colorboxcontainer">
           {colorOptionsList}
         </div>
-        <button onClick={() => this.removeBox()}>Minus</button>
-        <button onClick={() => this.addBox()}>Add</button>
+        <div className="addremove-container">
+          <button onClick={() => this.removeBox()}>Remove</button>
+          <button onClick={() => this.addBox()}>Add</button>
+        </div>
       </div>
     )
   }

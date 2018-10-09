@@ -1,3 +1,6 @@
+import {API_BASE_URL} from '../config';
+import {normalizeResponseErrors} from './utils';
+
 export const ADD_BOX = 'ADD_BOX';
 export const addBox = () => ({
   type: ADD_BOX
@@ -35,3 +38,32 @@ export const lightnessChanged = data => ({
   lightnessValue: data.lightnessValue,
   colorIndex: data.colorIndex
 })
+
+export const RENDER_ONE_PALETTE = 'RENDER_ONE_PALETTE';
+export const renderOnePalette = data => ({
+  type: RENDER_ONE_PALETTE,
+  fetchedpalette: data
+})
+
+export const getOnePalette = data => dispatch => {
+  const {authToken, id} = data;
+  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + authToken
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    return res.json();
+  })
+  .then(data => {
+    return data;
+  })
+  .catch(err => {
+    const {reason, message, location} = err;
+    if (reason === 'ValidationError') {
+      return Promise.reject();
+    }
+  })
+}

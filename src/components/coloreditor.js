@@ -1,12 +1,48 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Colorboxes from './colorboxes';
-import {hueChanged, saturationChanged, lightnessChanged} from '../actions/editor';
+import {hueChanged, saturationChanged, lightnessChanged,  getOnePalette, renderOnePalette} from '../actions/editor';
 import './coloreditor.css';
 import requiresLogin from './requires-login';
-import {getPalettes, postPalette} from '../actions/palettes';
+import {postPalette} from '../actions/palettes';
+import { browserHistory } from 'react-router'
 
 export class Coloreditor extends React.Component{
+  constructor(props) {
+    super(props);
+    this.props.dispatch(renderOnePalette([{
+      checked: true,
+      color: {
+        hue: Math.floor(Math.random() * 360),
+        saturation: Math.floor(Math.random() * 100),
+        lightness: Math.floor(Math.random() * 100)
+      }
+    }]))
+  }
+
+  componentDidMount(){
+    if (this.props.match.params.paletteid !== 'new') {
+      const data = {authToken: this.props.authToken, id: this.props.match.params.paletteid}
+      this.props
+        .dispatch(getOnePalette(data))
+        .then(onepalette => {
+          const mappedpalette = onepalette.colors.map((color, idx) => {
+            return idx === 0 ? {checked: true, color} : {checked: false, color};
+          })
+          this.props.dispatch(renderOnePalette(mappedpalette));
+        })
+    }
+  }
+
+  savePalette(){
+    const data = {authToken: this.props.authToken, palette: this.props.editor.colorOptions}
+    this.props
+      .dispatch(postPalette(data))
+      .then(res => {
+        console.log('post success');
+      })
+    
+  }
 
   hueChanged(e){
     this.props.dispatch(hueChanged({
@@ -29,29 +65,17 @@ export class Coloreditor extends React.Component{
     }));
   }
 
-  printstate(){
-    console.log(this.state);
-  }
-
-  postPalette(){
-    return this.props.dispatch(getPalettes());
-  }
-
   render(){
     return(
       <div>
-        <h1 className="app-title">Color Editor</h1>
-        <Colorboxes/>
+        <h1 className="editor-title">Color Editor</h1>
+        <Colorboxes />
         <div className="divider"></div>
         <div className="subMenuContainer">
-          <button className="subMenu">Values</button>
-          <button className="subMenu">Adjustments</button>
+          <button className="subMenu">HSL Sliders</button>
         </div>
-
-        <div>HSL</div>
         <div className="slidecontainer">
           <div className="sliderInitials">H {this.props.checkedColor.color.hue}</div>
-          <div></div>
           <input type="range" min="0" max="360" className="slider-hsl-h slider" id="myRange"
           value={this.props.checkedColor.color.hue}
           onChange={this.hueChanged.bind(this)}
@@ -85,21 +109,26 @@ export class Coloreditor extends React.Component{
             `}}
           ></input>
         </div>
-        <button>Discard</button>
-        <button onClick={postPalette}>Finish</button>
+        <div className="discardsave-container" >
+          <button>Discard</button>
+          <button onClick={this.savePalette.bind(this)}>Save</button>
+        </div>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
+  console.log('this is the state');
+  console.log(state);
   const hasChecked = color => color.checked;
   const checkedColor = state.main.editor.colorOptions.find(hasChecked);
   const checkedColorIndex = state.main.editor.colorOptions.findIndex(hasChecked);
   return {
    editor: state.main.editor,
    checkedColor,
-   checkedColorIndex
+   checkedColorIndex,
+   authToken: state.auth.authToken
   }
 }
 

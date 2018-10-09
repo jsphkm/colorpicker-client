@@ -6,13 +6,13 @@
 }
 
 .app-title-button {
-  margin: 15px 0px;
+  margin: 20px 0px;
 }
 
 .app-header {
   padding: 0 15px;
-  box-shadow: 0 0 20px 0 black;
-  background-color: black;
+  box-shadow: 0 0 20px 0 rgb(5,5,5);
+  background-color: rgb(18,18,18);
   z-index: 1;
   position: fixed;
   top: 0;
@@ -41,10 +41,6 @@
 
 .header-left {
   display: inline-flex;
-  flex: 1;
-}
-
-.header-middle {
   flex: 1;
 }
 

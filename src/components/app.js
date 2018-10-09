@@ -15,7 +15,6 @@ import RegistrationPage from './registration-page';
 import LandingPage from './landing-page';
 import User from './user';
 import NotFound from './notfound';
-
 // const PrivateRoute = ({component: Component, ...rest}) => (
 //   <Route {...rest} render={(props) => (
 //     props.hasAuthToken !== null
@@ -25,6 +24,7 @@ import NotFound from './notfound';
 // )
 
 export class App extends React.Component {
+
   render(){
     return (
       <Router>

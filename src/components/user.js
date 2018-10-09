@@ -13,7 +13,7 @@ export default class User extends React.Component{
           <div className="spacer"></div>
           <main>
             <Route exact path="/user/dashboard" component={Dashboard} />
-            <Route exact path="/user/editor" component={Coloreditor} />
+            <Route exact path="/user/editor/:paletteid" component={Coloreditor} />
           </main>
         </div>
     );

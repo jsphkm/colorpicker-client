@@ -1,6 +1,12 @@
 body {
   margin: 0;
-  background-color: black;
+  background-color: rgb(17,17,17);
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
+  min-width: 320px;
 }
+
+button {
+  color: white;
+}
+

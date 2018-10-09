@@ -7,13 +7,16 @@ export const renderPalettes = data => ({
   palettes: data
 })
 
-export const postPalette = palette => dispatch => {
+export const postPalette = (data) => dispatch => {
+  const {authToken, colors} = data;
+  console.log(typeof colors[0].color.hue);
   return fetch(`${API_BASE_URL}/palettes`, {
     method: 'POST',
     headers: {
+      Authorization: 'Bearer ' + authToken,
       'content-type': 'application/json'
     },
-    body: JSON.stringify(palette)
+    body: JSON.stringify({colors: colors})
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
@@ -30,11 +33,11 @@ export const postPalette = palette => dispatch => {
   });
 };
 
-export const getPalettes = () => dispatch => {
+export const getPalettes = (authToken) => dispatch => {
   return fetch(`${API_BASE_URL}/palettes`, {
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + localStorage.getItem('authToken')
+      Authorization: 'Bearer ' + authToken
     }
   })
   .then(res => normalizeResponseErrors(res))

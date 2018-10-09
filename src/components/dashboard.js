@@ -6,12 +6,17 @@ import requiresLogin from './requires-login';
 import PalettesList from './paletteslist';
 
 export class Dashboard extends React.Component {
+
   render() {
     return (
       <section className="dashboard-section">
-        <h1>Dashboard</h1>
-        <Link to="/user/editor" className="newpalette">Create a New Palette</Link>
-        <div className="divider"></div>
+        <div className="dashboard-header">
+          <h1>Palettes</h1>
+          <Link to="/user/editor/new" className="newpalette-link">
+            <span className="newpalette-plus">+</span>
+            {/* <span className="newpalette-text">New palette</span> */}
+          </Link>
+        </div>
         <PalettesList />
       </section>
     )

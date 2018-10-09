@@ -20,6 +20,22 @@ const initialState = {
 };
 
 export const mainReducer = (state=initialState, action) => {
+  if (action.type === editor.RENDER_ONE_PALETTE) {
+    return Object.assign({}, state, {
+      editor: {
+        colorOptions: action.fetchedpalette
+      }
+    })
+  }
+
+  if (action.type === palettes.RENDER_PALETTES) {
+    const newPalettesList = action.palettes;
+    return Object.assign({}, state, {
+      dashboard: {
+        palettes: newPalettesList
+      }
+    })
+  }
 
   if (action.type === editor.ADD_BOX) {
     return Object.assign({}, state, {
@@ -66,16 +82,6 @@ export const mainReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       editor: {
         colorOptions: newEditorStates
-      }
-    })
-  }
-
-  if (action.type === palettes.RENDER_PALETTES) {
-    console.log(action);
-    const newPalettesList = action.palettes;
-    return Object.assign({}, state, {
-      dashboard: {
-        palettes: newPalettesList
       }
     })
   }
