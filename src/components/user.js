@@ -1,6 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Link, withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Coloreditor from './coloreditor';
 import Dashboard from './dashboard';
 import Headerbar from './header-bar';

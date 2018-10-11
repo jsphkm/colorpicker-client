@@ -1,3 +1,30 @@
 .divider {
   margin: 10px 0;
 }
+
+.landingpage-contents {
+  height: 70vh;
+  margin: 30px 15px;
+}
+
+.landing-header {
+  font-size: 40px;
+}
+
+.landingpage-contents > p {
+  font-weight: 300;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+@media(min-width: 600px) {
+  .landingpage-contents {
+    height: 70vh;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+

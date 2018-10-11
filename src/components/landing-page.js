@@ -2,20 +2,29 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import Headerbar from './header-bar';
-import LoginForm from './login-form';
 import './landing-page.css';
 
-export default function LandingPage(props) {
+export function LandingPage(props) {
+  if (props.hasAuthToken) {
+    return <Redirect to="/user/dashboard" />;
+  }
 
   return (
     <div>
       <Headerbar title="Colorpicker"/>
       <div className="spacer"></div>
       <main>
-        <h1>Landing Page</h1>
-        <div className="divider"></div>
-        Display a bunch of public palettes here...
+        <div className="landingpage-contents">
+          <h1 className="landing-header">Welcome to Colorpicker</h1>
+          <p>To create and view your palettes, please <Link to="/login">log in</Link></p>
+        </div>
       </main>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null
+})
+
+export default connect(mapStateToProps)(LandingPage);

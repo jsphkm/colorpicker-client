@@ -2,10 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {
   BrowserRouter as Router, 
-  Route, 
-  Link, 
-  withRouter, 
-  Redirect, 
+  Route,
+  withRouter,
   Switch
 } from 'react-router-dom';
 import './app.css';
@@ -15,13 +13,6 @@ import RegistrationPage from './registration-page';
 import LandingPage from './landing-page';
 import User from './user';
 import NotFound from './notfound';
-// const PrivateRoute = ({component: Component, ...rest}) => (
-//   <Route {...rest} render={(props) => (
-//     props.hasAuthToken !== null
-//       ? <Component {...props} />
-//       : <Redirect to='/login' />
-//   )} />
-// )
 
 export class App extends React.Component {
 

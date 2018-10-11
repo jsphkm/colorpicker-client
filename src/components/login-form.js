@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty, email} from '../validators';
@@ -8,7 +8,7 @@ import './login-form.css'
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
-    this.props.dispatch(login(values.email, values.password))
+    return this.props.dispatch(login(values.email, values.password))
   }
 
   render() {

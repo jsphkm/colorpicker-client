@@ -4,8 +4,8 @@ import Colorboxes from './colorboxes';
 import {hueChanged, saturationChanged, lightnessChanged,  getOnePalette, renderOnePalette} from '../actions/editor';
 import './coloreditor.css';
 import requiresLogin from './requires-login';
-import {postPalette} from '../actions/palettes';
-import { browserHistory } from 'react-router'
+import {postPalette, putPalette, deletePalette} from '../actions/palettes';
+import {Link, withRouter} from 'react-router-dom';
 
 export class Coloreditor extends React.Component{
   constructor(props) {
@@ -35,13 +35,40 @@ export class Coloreditor extends React.Component{
   }
 
   savePalette(){
-    const data = {authToken: this.props.authToken, palette: this.props.editor.colorOptions}
-    this.props
-      .dispatch(postPalette(data))
-      .then(res => {
-        console.log('post success');
-      })
+    const colorlist = this.props.editor.colorOptions.map(e => {
+      return e.color;
+    })
+    if (this.props.match.params.paletteid === 'new') {
+      const data = {authToken: this.props.authToken, palette: colorlist};
+      this.props
+        .dispatch(postPalette(data))
+        .then(res => {
+          this.props.history.push("/user/dashboard");
+        })
+    }
+
+    else {
+      const data = {
+        authToken: this.props.authToken,
+        palette: colorlist,
+        id: this.props.match.params.paletteid
+      };
+      this.props
+        .dispatch(putPalette(data))
+        .then(res => {
+          this.props.history.push("/user/dashboard");
+        })
+    }
     
+  }
+
+  deletePalette(){
+    const data = {authToken: this.props.authToken, id: this.props.match.params.paletteid}
+    this.props
+      .dispatch(deletePalette(data))
+      .then(res => {
+        this.props.history.push("/user/dashboard")
+      })
   }
 
   hueChanged(e){
@@ -72,7 +99,7 @@ export class Coloreditor extends React.Component{
         <Colorboxes />
         <div className="divider"></div>
         <div className="subMenuContainer">
-          <button className="subMenu">HSL Sliders</button>
+          <div className="subMenu">HSL Sliders</div>
         </div>
         <div className="slidecontainer">
           <div className="sliderInitials">H {this.props.checkedColor.color.hue}</div>
@@ -110,7 +137,8 @@ export class Coloreditor extends React.Component{
           ></input>
         </div>
         <div className="discardsave-container" >
-          <button>Discard</button>
+          <button className="delete-button" onClick={this.deletePalette.bind(this)}>Delete</button>
+          <Link to="/user/dashboard" className="cancel-button">Cancel</Link>
           <button onClick={this.savePalette.bind(this)}>Save</button>
         </div>
       </div>
@@ -119,8 +147,6 @@ export class Coloreditor extends React.Component{
 }
 
 const mapStateToProps = state => {
-  console.log('this is the state');
-  console.log(state);
   const hasChecked = color => color.checked;
   const checkedColor = state.main.editor.colorOptions.find(hasChecked);
   const checkedColorIndex = state.main.editor.colorOptions.findIndex(hasChecked);
@@ -132,4 +158,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default requiresLogin()(connect(mapStateToProps)(Coloreditor));
+export default requiresLogin()(connect(mapStateToProps)(withRouter(Coloreditor)));

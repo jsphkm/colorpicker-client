@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getPalettes, renderPalettes} from '../actions/palettes';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './paletteslist.css';
 
 const Colorpalette = function(props) {

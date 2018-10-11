@@ -15,10 +15,7 @@ const Colorbox = function(props) {
         onChange={onChange}
         id={"radio" + _id}   
         />
-      <label
-        htmlFor={"radio" + _id}
-      >
-      </label>
+      <label htmlFor={"radio" + _id}></label>
     </div>
   );
 }
@@ -64,7 +61,6 @@ export class Colorboxes extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     const colorOptionsList = this.props.colorOptions.map((coloroption, idx) => (
       <Colorbox 
         key={idx}

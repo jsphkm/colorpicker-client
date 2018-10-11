@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './dashboard.css';
 import requiresLogin from './requires-login';
 import PalettesList from './paletteslist';

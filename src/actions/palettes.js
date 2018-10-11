@@ -8,15 +8,14 @@ export const renderPalettes = data => ({
 })
 
 export const postPalette = (data) => dispatch => {
-  const {authToken, colors} = data;
-  console.log(typeof colors[0].color.hue);
+  const {authToken, palette} = data;
   return fetch(`${API_BASE_URL}/palettes`, {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + authToken,
       'content-type': 'application/json'
     },
-    body: JSON.stringify({colors: colors})
+    body: JSON.stringify({colors: palette})
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
@@ -26,12 +25,55 @@ export const postPalette = (data) => dispatch => {
     return data;
   })
   .catch(err => {
-    const {reason, message, location} = err;
+    const {reason} = err;
     if (reason === 'ValidationError') {
       return Promise.reject();
     }
   });
 };
+
+export const putPalette = (data) => dispatch => {
+  const {authToken, palette, id} = data;
+  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: 'Bearer ' + authToken,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({colors: palette})
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    return res;
+  })
+  .catch(err => {
+    const {reason} = err;
+    if (reason === 'ValidationError') {
+      return Promise.reject();
+    }
+  });
+};
+
+export const deletePalette = (data) => dispatch => {
+  const {authToken, id} = data;
+  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + authToken,
+      'content-type': 'application/json'
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    return res;
+  })
+  .catch(err => {
+    const {reason} = err;
+    if (reason === 'ValidationError') {
+      return Promise.reject();
+    }
+  })
+}
 
 export const getPalettes = (authToken) => dispatch => {
   return fetch(`${API_BASE_URL}/palettes`, {
