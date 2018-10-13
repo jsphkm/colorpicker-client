@@ -5,10 +5,13 @@
 .landingpage-contents {
   height: 70vh;
   margin: 30px 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .landing-header {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .landingpage-contents > p {
@@ -25,6 +28,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .landingpage-contents > p {
+    font-weight: 300;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .landing-header {
+    font-size: 40px;
   }
 }
 
