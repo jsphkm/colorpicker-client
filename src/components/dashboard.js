@@ -14,7 +14,6 @@ export class Dashboard extends React.Component {
           <h1>Palettes</h1>
           <Link to="/user/editor/new" className="newpalette-link">
             <span className="newpalette-plus">+</span>
-            {/* <span className="newpalette-text">New palette</span> */}
           </Link>
         </div>
         <PalettesList />

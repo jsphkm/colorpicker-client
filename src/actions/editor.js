@@ -61,7 +61,7 @@ export const getOnePalette = data => dispatch => {
     return data;
   })
   .catch(err => {
-    const {reason, message, location} = err;
+    const {reason} = err;
     if (reason === 'ValidationError') {
       return Promise.reject();
     }

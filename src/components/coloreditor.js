@@ -93,6 +93,13 @@ export class Coloreditor extends React.Component{
   }
 
   render(){
+    let deletebutton;
+    if (this.props.match.params.paletteid !== 'new') {
+      deletebutton = <button className="delete-button" onClick={this.deletePalette.bind(this)}>Delete</button>
+    }
+    else {
+      deletebutton = null;
+    }
     return(
       <div>
         <h1 className="editor-title">Color Editor</h1>
@@ -137,7 +144,7 @@ export class Coloreditor extends React.Component{
           ></input>
         </div>
         <div className="discardsave-container" >
-          <button className="delete-button" onClick={this.deletePalette.bind(this)}>Delete</button>
+          {deletebutton}
           <Link to="/user/dashboard" className="cancel-button">Cancel</Link>
           <button onClick={this.savePalette.bind(this)}>Save</button>
         </div>

@@ -77,8 +77,8 @@ export class Colorboxes extends React.Component {
           {colorOptionsList}
         </div>
         <div className="addremove-container">
-          <button onClick={() => this.removeBox()}>Remove</button>
-          <button onClick={() => this.addBox()}>Add</button>
+          <button className="remove-button" onClick={() => this.removeBox()}>Remove</button>
+          <button className="add-button" onClick={() => this.addBox()}>Add</button>
         </div>
       </div>
     )

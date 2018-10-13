@@ -1,12 +1,12 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from './app';
+import User from './user';
 
 Enzyme.configure({adapter: new Adapter()})
 
-describe('<App />', () => {
+describe('<User />', () => {
   it('Renders without crashing', () => {
-      Enzyme.shallow(<App />);
+      Enzyme.shallow(<User />);
   });
 })
