@@ -6,7 +6,7 @@ import {login} from '../actions/auth';
 import Input from './input';
 import './registration-form.css';
 import {required, nonEmpty, matches, length, isTrimmed, email} from '../validators';
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
@@ -15,18 +15,30 @@ export class RegistrationForm extends React.Component {
     const user = {email, password, firstname: firstName, lastname: lastName};
     return this.props
         .dispatch(registerUser(user))
-        .then(() => this.props.dispatch(login(email, password)));
+        .then(() => this.props.dispatch(login(email, password)))
+        .catch((err) => {
+            console.log(err.errors);
+        })
   }
 
   render() {
+    let error;
+    console.log(this.props);
+    if (this.props.error) {
+        error = (
+            <div className="form-error" aria-live="polite">
+                {this.props.error}
+            </div>
+        )
+    }
     return (
       <form
           className="login-form"
           onSubmit={this.props.handleSubmit(values => {
-              console.log(values);
               this.onSubmit(values);
              }
           )}>
+          {error}
           <Field component={Input} type="text" name="firstName" label="First name"/>
           <Field component={Input} type="text" name="lastName" label="Last name"/>
           <Field

@@ -23,21 +23,24 @@
 }
 
 .login-button {
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: none;
-  /* color: hsl(0,0%,70%); */
-  /* border: 2px solid hsl(0,0%,30%); */
-  border: 2px solid transparent;
-  border-radius: 15px;
+  color: hsl(0,0%,70%);
   display: flex;
   align-items: center;
+
+  background-color: dodgerblue;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-weight: 500;
 }
 
-/* .login-button:hover, .login-button:focus {
+.login-button:hover, .login-button:focus {
   color: hsl(0,0%,100%);
-  border: 2px solid dodgerblue;
-  transition: border 0.8s, color 0.5s;
-} */
+  background-color: blue;
+  transition: background-color 0.8s, color 0.5s;
+}
 
 .header-left {
   display: inline-flex;

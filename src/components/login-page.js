@@ -13,7 +13,9 @@ export function LoginPage(props) {
     <section className="loginform-container">
       <h2 className="login-title">Log in to Colorpicker</h2>
       <LoginForm/>
+      <span>Test Account: john@doe.com / password123</span>
     </section>
+    
   )
 }
 

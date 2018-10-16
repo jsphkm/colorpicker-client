@@ -146,7 +146,7 @@ export class Coloreditor extends React.Component{
         <div className="discardsave-container" >
           {deletebutton}
           <Link to="/user/dashboard" className="cancel-button">Cancel</Link>
-          <button onClick={this.savePalette.bind(this)}>Save</button>
+          <button className="save-button" onClick={this.savePalette.bind(this)}>Save</button>
         </div>
       </div>
     )

@@ -1,5 +1,6 @@
 import * as editor from '../actions/editor';
 import * as palettes from '../actions/palettes';
+import * as users from '../actions/users';
 
 const initialState = {
   dashboard: {
@@ -120,6 +121,13 @@ export const mainReducer = (state=initialState, action) => {
         colorOptions: newEditorStates
       }
     })
+  }
+
+  if (action.type === users.POST_ERROR){
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    });
   }
 
   return state;

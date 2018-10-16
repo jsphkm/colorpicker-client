@@ -32,6 +32,10 @@ describe('mainReducer', () => {
     expect(state).toBe(initialState);
   });
 
+  // TODO: Test that store generates a default number values
+  // const {color} = state.editor.colorOptions;
+  // expect(typeof color.lightness).toBe("number");
+
   it('Should render one palette', () => {
     const state = mainReducer(currentState, {type: editor.RENDER_ONE_PALETTE, fetchedpalette: 'fetchedpalette'});
     expect(state).toEqual({editor: {colorOptions: 'fetchedpalette'}});
