@@ -36,10 +36,16 @@
   font-weight: 500;
 }
 
-.login-button:hover, .login-button:focus {
+.login-button:hover,
+.login-button:focus
+{
   color: hsl(0,0%,100%);
   background-color: blue;
   transition: background-color 0.8s, color 0.5s;
+}
+
+.buttons-container {
+  display: flex;
 }
 
 .header-left {

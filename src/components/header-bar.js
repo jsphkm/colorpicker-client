@@ -28,7 +28,9 @@ export class HeaderBar extends React.Component {
             <button className="logout-button" onClick={this.signout.bind(this)}
             >Log out</button>
             ) : (
-              <Link to="/login" className="login-button">Log in</Link>
+              <div className='buttons-container'>
+                <Link to="/login" className="login-button">Log in</Link>
+              </div>
             )
           }
         </div>

@@ -9,7 +9,7 @@ export const renderPalettes = data => ({
 
 export const postPalette = (data) => dispatch => {
   const {authToken, palette} = data;
-  return fetch(`${API_BASE_URL}/palettes`, {
+  return fetch(`${API_BASE_URL}/api/palettes`, {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + authToken,

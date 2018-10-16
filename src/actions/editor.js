@@ -47,7 +47,7 @@ export const renderOnePalette = data => ({
 
 export const getOnePalette = data => dispatch => {
   const {authToken, id} = data;
-  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+  return fetch(`${API_BASE_URL}/api/palettes/${id}`, {
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + authToken
