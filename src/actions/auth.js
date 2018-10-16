@@ -78,7 +78,7 @@ export const login = (email, password) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
   dispatch(authRequest());
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/auth/refresh`, {
+  return fetch(`${API_BASE_URL}/api/auth/refresh`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${authToken}`

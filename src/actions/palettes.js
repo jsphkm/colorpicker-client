@@ -34,7 +34,7 @@ export const postPalette = (data) => dispatch => {
 
 export const putPalette = (data) => dispatch => {
   const {authToken, palette, id} = data;
-  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+  return fetch(`${API_BASE_URL}/api/palettes/${id}`, {
     method: 'PUT',
     headers: {
       Authorization: 'Bearer ' + authToken,
@@ -56,7 +56,7 @@ export const putPalette = (data) => dispatch => {
 
 export const deletePalette = (data) => dispatch => {
   const {authToken, id} = data;
-  return fetch(`${API_BASE_URL}/palettes/${id}`, {
+  return fetch(`${API_BASE_URL}/api/palettes/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + authToken,
@@ -76,7 +76,7 @@ export const deletePalette = (data) => dispatch => {
 }
 
 export const getPalettes = (authToken) => dispatch => {
-  return fetch(`${API_BASE_URL}/palettes`, {
+  return fetch(`${API_BASE_URL}/api/palettes`, {
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + authToken
