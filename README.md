@@ -13,8 +13,9 @@ A simple web-based color palette creator
 
 <img src='https://user-images.githubusercontent.com/28643797/47056558-cc115e00-d171-11e8-84f6-1e93b5c17983.png' alt='editor-portrait' width='300' />
 
-This editor has HSL color sliders which updates the color palette in real time.
-Add and Remove buttons will allow you to add or remove colors from the palette.
+User can select the color (indicated by the arrow) and edit its color with hsl sliders.
+ - Add button will append a random color to the palette.
+ - Remove button will remove the selected color from the palette.
 
 ## Dashboard
 <img src='https://user-images.githubusercontent.com/28643797/47056526-a421fa80-d171-11e8-9b8b-46d45805722c.png' alt='palettes-portrait' width='300' />
