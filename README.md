@@ -11,13 +11,13 @@ A simple web-based color palette creator
 
 ## Editor
 
-![editor-portrait](https://user-images.githubusercontent.com/28643797/47056080-8784c300-d16f-11e8-92cd-ffef5063acb8.png)
+![editor-portrait](https://user-images.githubusercontent.com/28643797/47056558-cc115e00-d171-11e8-84f6-1e93b5c17983.png)
 
 This editor has HSL color sliders which updates the color palette in real time.
 Add and Remove button will allow you to add more colors to the palette.
 
 ## Dashboard
-![colorpicker-client herokuapp com_login iphone 5_se](https://user-images.githubusercontent.com/28643797/47056279-67093880-d170-11e8-9688-c77d54c393e2.png)
+![palettes-portrait](https://user-images.githubusercontent.com/28643797/47056526-a421fa80-d171-11e8-9b8b-46d45805722c.png)
 
 The user can preview all the saved color palettes in this dashboard.
 The plus sign will allow the user to create a new palette, or clicking the color palette will allow one to edit the existing palette.
