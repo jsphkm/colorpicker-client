@@ -11,7 +11,7 @@ A simple web-based color palette creator
 
 ## Editor
 
-<img src='https://user-images.githubusercontent.com/28643797/47056558-cc115e00-d171-11e8-84f6-1e93b5c17983.png' alt='editor-portrait' width='300' />
+<img src='https://user-images.githubusercontent.com/28643797/47057276-c36e5700-d174-11e8-9ea5-d542a31908ee.png' alt='editor-portrait' width='300' />
 
 User can select the color (indicated by the arrow) and edit its color with hsl sliders.
  - Add button will append a random color to the palette.
