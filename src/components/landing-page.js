@@ -5,7 +5,7 @@ import Headerbar from './header-bar';
 import './landing-page.css';
 
 export function LandingPage(props) {
-  if (props.hasAuthToken) {
+  if (props.hasAuthToken && props.loggedIn || !props.error) {
     return <Redirect to="/user/dashboard" />;
   }
 
@@ -24,7 +24,9 @@ export function LandingPage(props) {
 }
 
 const mapStateToProps = state => ({
-  hasAuthToken: state.auth.authToken !== null
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null,
+  error: state.auth.error
 })
 
 export default connect(mapStateToProps)(LandingPage);
