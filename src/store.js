@@ -5,6 +5,7 @@ import mainReducer from './reducers';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+import {logger} from 'redux-logger';
 
 const store = createStore(
   combineReducers({
@@ -13,7 +14,7 @@ const store = createStore(
     auth: authReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
+  applyMiddleware(logger, thunk)
 );
 
 const authToken = loadAuthToken();
