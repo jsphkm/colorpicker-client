@@ -24,7 +24,6 @@ export class App extends React.Component {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={RegistrationPage} />
-            {/* <PrivateRoute path="/@user" component={User} /> */}
             <Route path="/user" component={User} />
             <Route component={NotFound} />
           </Switch>
