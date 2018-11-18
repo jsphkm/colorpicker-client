@@ -5,9 +5,10 @@ import Headerbar from './header-bar';
 import './landing-page.css';
 
 export function LandingPage(props) {
-  // if (props.hasAuthToken && props.loggedIn || !props.error) {
-  //   return <Redirect to="/user/dashboard" />;
-  // }
+  const hasNoError = !props.error;
+  if (props.hasAuthToken && props.loggedIn && hasNoError) {
+    return <Redirect to="/user/dashboard" />;
+  }
 
   return (
     <div>
