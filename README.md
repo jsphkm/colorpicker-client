@@ -23,6 +23,9 @@ User can select the color (indicated by the arrow) and edit its color with hsl s
 The user can preview all the saved color palettes in this dashboard.
 The plus sign will allow the user to create a new palette, or clicking the color palette will allow one to edit the existing palette.
 
+## Server Side
+* [colorpicker-server] (https://github.com/jsphkm/colorpicker-server.git)
+
 ## Built/Tested With
  - React
  - React-redux
