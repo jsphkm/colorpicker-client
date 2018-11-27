@@ -1,7 +1,7 @@
 # Colorpicker (Client Side)
 A simple web-based color palette creator
 
-* [colorpicker-server](https://github.com/jsphkm/colorpicker-server.git)
+[colorpicker-server](https://github.com/jsphkm/colorpicker-server.git)
 
 ![dashboard-landscape](https://user-images.githubusercontent.com/28643797/47056143-d3d00300-d16f-11e8-9047-c88dec869d69.png)
 
