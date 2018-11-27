@@ -1,5 +1,7 @@
-# Colorpicker
+# Colorpicker (Client Side)
 A simple web-based color palette creator
+
+* [colorpicker-server](https://github.com/jsphkm/colorpicker-server.git)
 
 ![dashboard-landscape](https://user-images.githubusercontent.com/28643797/47056143-d3d00300-d16f-11e8-9047-c88dec869d69.png)
 
@@ -22,9 +24,6 @@ User can select the color (indicated by the arrow) and edit its color with hsl s
 
 The user can preview all the saved color palettes in this dashboard.
 The plus sign will allow the user to create a new palette, or clicking the color palette will allow one to edit the existing palette.
-
-## Server Side
-* [colorpicker-server] (https://github.com/jsphkm/colorpicker-server.git)
 
 ## Built/Tested With
  - React
