@@ -12,7 +12,7 @@
 
 .form-submit-button:disabled {
   background-color: rgb(50,50,50);
-  color: rgb(120,120,120);
+  color: rgb(200,200,200);
 }
 
 .form-submit-button:disabled:hover {

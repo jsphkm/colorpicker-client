@@ -18,7 +18,7 @@
 }
 
 .form-input::placeholder {
-  color: hsl(0,0%,35%);
+  color: hsl(0,0%,70%);
 }
 
 .form-input-errors {
@@ -30,7 +30,7 @@
 
 .form-input-label {
   font-weight: 400;
-  color: hsl(0,0%,35%);
+  color: hsl(0,0%,70%);
   position: absolute;
   top: 0;
   left: 0;
